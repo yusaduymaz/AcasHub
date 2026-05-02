@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AcasHub provides professional accounting, financial consulting, and software solutions. Simplify your financial processes with our expert services.">
+    <meta name="keywords"
+        content="accounting, financial consulting, tax preparation, bookkeeping, payroll services, business consulting, web design, software solutions">
+    <!-- Google AdSense REMOVED - Unprofessional for accounting firm website -->
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="AcasHub | Professional Accounting & Financial Services">
+    <meta property="og:description"
+        content="Expert accounting, consulting, and software solutions to grow your business.">
+    <meta property="og:image" content="https://www.acashub.com/image/preview.png">
+    <meta property="og:url" content="https://www.acashub.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AcasHub | Professional Accounting & Financial Services">
+    <meta name="twitter:description"
+        content="Expert accounting, consulting, and software solutions to grow your business.">
+    <meta name="twitter:image" content="https://www.acashub.com/image/preview.png">
+
+    <title>AcasHub | Professional Accounting & Financial Consulting Services</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        as="style">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo-symbol.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo-symbol.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <!-- Schema.org markup -->
+    <!-- TODO: Replace placeholder values with real business information before production -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AccountingService",
+        "https://www.facebook.com/acashub",
+        "https://www.instagram.com/acashub",
+        "https://twitter.com/acashub"
+      ]
+    }
+    </script>
+
+    <!-- Google AdSense REMOVED - Unprofessional for accounting firm website -->
+
+    <!-- Google Analytics -->
+    <!-- TODO: Replace G-XXXXXXXXXX with your actual Google Analytics ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // TODO: Replace with your actual GA ID
+    </script>
+
+    <!-- Supabase JS Client (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="assets/js/main.js"></script>
+
+</head>
+
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <!-- Modern Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-content">
+                <!-- Logo ve Marka Kimliği -->
+                <div class="brand-identity">
+                    <a href="index.html" class="logo" aria-label="AcasHub Home">
+                        <div class="logo-icon">
+                            <img src="assets/images/logo-symbol.png" alt="ACAS Logo" class="logo-icon-img" width="50"
+                                height="50">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-name">Acas<span class="logo-name-highlight">Hub</span></span>
+                            <span class="logo-tagline">Financial Excellence</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Ana Navigasyon -->
+                <nav class="main-nav" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">
+                                <span class="nav-link-text">About</span>
+                                <span class="nav-link-hover"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#services" class="nav-link">
+                                <span class="nav-link-text">Services</span>
+                                <span class="nav-link-hover"></span>
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </a>
+                            <div class="dropdown-menu-dark">
+                                <a href="#service1-heading" class="dropdown-item">Accounting</a>
+                                <a href="#service2-heading" class="dropdown-item">Tax Services</a>
+                                <a href="#service3-heading" class="dropdown-item">Financial Consulting</a>
+                                <a href="#service4-heading" class="dropdown-item">Payroll Services</a>
+                                <a href="#service6-heading" class="dropdown-item">Software Solutions</a>
+                                <a href="#service5-heading" class="dropdown-item">Web Solutions</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#solutions" class="nav-link">
+                                <span class="nav-link-text">Solutions</span>
+                                <span class="nav-link-hover"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#testimonials" class="nav-link">
+                                <span class="nav-link-text">Clients</span>
+                                <span class="nav-link-hover"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">
+                                <span class="nav-link-text">Contact</span>
+                                <span class="nav-link-hover"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- CTA ve Sosyal Medya -->
+                <div class="header-actions">
+                    <a href="#contact" class="cta-button">
+                        <span>Get Quote</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobil Menü Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="menu-line top-line"></span>
+                    <span class="menu-line middle-line"></span>
+                    <span class="menu-line bottom-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobil Navigasyon -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-content">
+                <ul class="mobile-nav-list">
+                    <li class="mobile-nav-item">
+                        <a href="#about" class="mobile-nav-link">About Us</a>
+                    </li>
+                    <li class="mobile-nav-item mobile-dropdown">
+                        <a href="#services" class="mobile-nav-link">
+                            <span>Services</span>
+                            <i class="fas fa-chevron-down mobile-dropdown-icon"></i>
+                        </a>
+                        <div class="mobile-dropdown-menu">
+                            <a href="#accounting" class="mobile-dropdown-item">Accounting</a>
+                            <a href="#tax" class="mobile-dropdown-item">Tax Services</a>
+                            <a href="#consulting" class="mobile-dropdown-item">Financial Consulting</a>
+                            <a href="#software" class="mobile-dropdown-item">Software Solutions</a>
+                        </div>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#solutions" class="mobile-nav-link">Solutions</a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#testimonials" class="mobile-nav-link">Client Stories</a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#contact" class="mobile-nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="mobile-nav-footer">
+                    <a href="#contact" class="mobile-cta-button">Get Free Consultation</a>
+                    <div class="mobile-social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="particles-js"></div>
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="videos/finance-bg.mp4" type="video/mp4" />
+                <source src="videos/finance-bg.webm" type="video/webm" />
+            </video>
+        </div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left: Text -->
+                <div class="hero-content">
+
+                    <h1 id="hero-heading">
+                        <span class="hero-title-line">Transform Your</span>
+                        <span class="hero-title-highlight">Financial Future</span>
+                        <span class="hero-title-line">With Expert Guidance</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Precision accounting solutions tailored to fuel your business growth and maximize profitability.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#services" class="btn btn-primary hero-cta-btn">
+                            <span>Explore Services</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-primary hero-cta-btn">
+                            <span>Schedule a Free Consultation</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Visual / Image + Floating Stats -->
+                <div class="hero-media">
+                    <div class="hero-image">
+                        <div class="hero-image-glow"></div>
+
+                        <div class="image-container">
+                            <img src="assets/images/hero-image 2.webp" alt="Professional accountant working" width="600"
+                                height="600" loading="eager" />
+
+                            <div class="image-badge">
+                                <div class="badge-content">
+                                    <i class="fas fa-award"></i>
+                                    <span>Certified Professionals</span>
+                                </div>
+                            </div>
+
+                            <!-- Floating glassmorphism stats, positioned relative to image -->
+
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /.hero-grid -->
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- About Section -->
+        <section id="about" class="section about-section" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="about-heading" class="section-title">About <span>AcasHub</span></h2>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>AcasHub is a leading provider of professional accounting and financial consulting services.
+                            Our team of certified professionals is dedicated to helping businesses of all sizes achieve
+                            financial clarity and success.</p>
+                        <p>With years of experience across various industries, we offer tailored solutions that address
+                            your unique financial challenges and goals.</p>
+
+                        <ul class="about-features">
+                            <li class="feature-item">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                <span>Certified accounting professionals</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                <span>Personalized financial strategies</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                <span>Cutting-edge financial technology</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                <span>Proactive tax planning</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-image">
+                        <img src="assets/images/about-image.webp" alt="AcasHub team working together" width="500" height="350"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services-section" aria-labelledby="services-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="services-heading" class="section-title">Our <span>Services</span></h2>
+                    <p class="section-subtitle">Comprehensive financial solutions for your business</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card" aria-labelledby="service1-heading">
+                        <div class="service-icon">
+                            <i class="fas fa-calculator" aria-hidden="true"></i>
+                        </div>
+                        <h3 id="service1-heading">Accounting Services</h3>
+                        <p>Comprehensive bookkeeping, financial reporting, and general accounting services to keep your
+                            finances organized.</p>
+                        <ul class="service-features">
+                            <li>Monthly bookkeeping</li>
+                            <li>Financial statements</li>
+                            <li>Accounts payable/receivable</li>
+                            <li>Bank reconciliations</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 2 -->
+                    <article class="service-card" aria-labelledby="service2-heading">
+                        <div class="service-icon">
+                            <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+                        </div>
+                        <h3 id="service2-heading">Tax Preparation</h3>
+                        <p>Expert tax planning and preparation to minimize liabilities and ensure compliance with
+                            regulations.</p>
+                        <ul class="service-features">
+                            <li>Business tax returns</li>
+                            <li>Personal tax planning</li>
+                            <li>Tax strategy consulting</li>
+                            <li>IRS representation</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 3 -->
+                    <article class="service-card" aria-labelledby="service3-heading">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <h3 id="service3-heading">Financial Consulting</h3>
+                        <p>Strategic financial advice to help grow your business and improve profitability.</p>
+                        <ul class="service-features">
+                            <li>Business valuation</li>
+                            <li>Financial forecasting</li>
+                            <li>Cash flow management</li>
+                            <li>Investment analysis</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 4 -->
+                    <article class="service-card" aria-labelledby="service4-heading">
+                        <div class="service-icon">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <h3 id="service4-heading">Payroll Services</h3>
+                        <p>Accurate and timely payroll processing with full compliance and reporting.</p>
+                        <ul class="service-features">
+                            <li>Payroll processing</li>
+                            <li>Tax filings</li>
+                            <li>Direct deposit setup</li>
+                            <li>Employee benefits</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 5 -->
+                    <article class="service-card" aria-labelledby="service5-heading">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        </div>
+                        <h3 id="service5-heading">Software Solutions</h3>
+                        <p>Custom accounting software and business tools to streamline your operations.</p>
+                        <ul class="service-features">
+                            <li>Custom accounting software</li>
+                            <li>Business process automation</li>
+                            <li>Financial dashboards</li>
+                            <li>Integration services</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 6 -->
+                    <article class="service-card" aria-labelledby="service6-heading">
+                        <div class="service-icon">
+                            <i class="fas fa-globe" aria-hidden="true"></i>
+                        </div>
+                        <h3 id="service6-heading">Web Solutions</h3>
+                        <p>Professional web design and development services for accounting firms.</p>
+                        <ul class="service-features">
+                            <li>Accounting firm websites</li>
+                            <li>Client portals</li>
+                            <li>SEO optimization</li>
+                            <li>Content management</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="section solutions-section" aria-labelledby="solutions-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="solutions-heading" class="section-title">Our <span>Solutions</span></h2>
+                    <p class="section-subtitle">Tailored approaches for your industry</p>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-nav" role="tablist" aria-label="Industry solutions">
+                        <button class="tab-button active" role="tab" aria-selected="true"
+                            aria-controls="small-business-tab" id="small-business">Small Business</button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="startups-tab"
+                            id="startups" tabindex="-1">Startups</button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="ecommerce-tab"
+                            id="ecommerce" tabindex="-1">E-commerce</button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="nonprofit-tab"
+                            id="nonprofit" tabindex="-1">Non-Profit</button>
+                    </div>
+
+                    <div class="tabs-content">
+                        <!-- Tab 1 -->
+                        <div id="small-business-tab" class="tab-panel active" role="tabpanel"
+                            aria-labelledby="small-business" tabindex="0">
+                            <div class="tab-content">
+                                <div class="tab-image">
+                                    <img src="assets/images//small-business.webp" alt="Small business accounting" width="500"
+                                        height="350" loading="lazy">
+                                </div>
+                                <div class="tab-text">
+                                    <h3>Small Business Accounting Solutions</h3>
+                                    <p>We understand the unique challenges small businesses face. Our tailored
+                                        accounting solutions help you:</p>
+                                    <ul>
+                                        <li>Streamline bookkeeping and financial reporting</li>
+                                        <li>Optimize cash flow management</li>
+                                        <li>Reduce tax liabilities with proactive planning</li>
+                                        <li>Implement scalable systems for growth</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2 -->
+                        <div id="startups-tab" class="tab-panel" role="tabpanel" aria-labelledby="startups" tabindex="0"
+                            hidden>
+                            <div class="tab-content">
+                                <div class="tab-image">
+                                    <img src="assets/images/startup accounting.webp" alt="Startup accounting" width="500"
+                                        height="350" loading="lazy">
+                                </div>
+                                <div class="tab-text">
+                                    <h3>Startup Financial Services</h3>
+                                    <p>From incorporation to funding rounds, we support startups with:</p>
+                                    <ul class="tab-text-ul">
+                                        <li>Entity formation and structuring advice</li>
+                                        <li>Investor-ready financial models</li>
+                                        <li>Burn rate analysis and runway planning</li>
+                                        <li>Equity and cap table management</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3 -->
+                        <div id="ecommerce-tab" class="tab-panel" role="tabpanel" aria-labelledby="ecommerce"
+                            tabindex="0" hidden>
+                            <div class="tab-content">
+                                <div class="tab-image">
+                                    <img src="assets/images/e-commerce accounting.webp" alt="E-commerce accounting" width="500"
+                                        height="350" loading="lazy">
+                                </div>
+                                <div class="tab-text">
+                                    <h3>E-commerce Accounting Solutions</h3>
+                                    <p>Specialized services for online businesses including:</p>
+                                    <ul class="tab-text-ul">
+                                        <li>Multi-channel sales reconciliation</li>
+                                        <li>Inventory and COGS tracking</li>
+                                        <li>Sales tax compliance across jurisdictions</li>
+                                        <li>Platform integration and automation</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4 -->
+                        <div id="nonprofit-tab" class="tab-panel" role="tabpanel" aria-labelledby="nonprofit"
+                            tabindex="0" hidden>
+                            <div class="tab-content">
+                                <div class="tab-image">
+                                    <img src="assets/images/nonprofit solutions.webp" alt="Non-profit accounting" width="500"
+                                        height="350" loading="lazy">
+                                </div>
+                                <div class="tab-text">
+                                    <h3>Non-Profit Financial Management</h3>
+                                    <p>Compliance-focused services for non-profits:</p>
+                                    <ul class="tab-text-ul">
+                                        <li>Fund accounting and grant tracking</li>
+                                        <li>Form 990 preparation</li>
+                                        <li>Donation receipting and reporting</li>
+                                        <li>Board financial reporting</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" aria-label="Company statistics">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="1">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="99">0</div>
+                        <div class="stat-label">% Client Retention</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section testimonials-section" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="testimonials-heading" class="section-title">
+                        Client <span>Success Stories</span>
+                    </h2>
+                    <p class="section-subtitle">Trusted by businesses across industries</p>
+                </div>
+
+                <div class="testimonials-shell">
+                    <!-- Slider track expected by script.js -->
+                    <div class="testimonial-slider">
+                        <div class="testimonial-slide">
+                            <article class="testimonial-card" aria-labelledby="testimonial1-heading">
+                                <div class="card-header">
+                                    <div class="client-image">
+                                        <img src="assets/images/client1.webp" alt="Sarah Johnson" width="80" height="80"
+                                            loading="lazy" />
+                                        <div class="client-badge">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="client-info">
+                                        <h3 id="testimonial1-heading">Sarah Johnson</h3>
+                                        <p class="client-title">CEO, Retail Solutions</p>
+                                        <div class="client-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    <p>
+                                        "AcasHub transformed our financial operations. Their team implemented efficient
+                                        systems that saved us hours each week and provided insights that helped us grow
+                                        revenue by 30%."
+                                    </p>
+                                </blockquote>
+                                <div class="card-footer">
+                                    <div class="service-used">
+                                        <i class="fas fa-calculator"></i>
+                                        <span>Accounting Services</span>
+                                    </div>
+                                    <div class="testimonial-date">March 2024</div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="testimonial-slide">
+                            <article class="testimonial-card" aria-labelledby="testimonial2-heading">
+                                <div class="card-header">
+                                    <div class="client-image">
+                                        <img src="assets/images/client2.webp" alt="Michael Chen" width="80" height="80"
+                                            loading="lazy" />
+                                        <div class="client-badge">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="client-info">
+                                        <h3 id="testimonial2-heading">Michael Chen</h3>
+                                        <p class="client-title">Founder, TechStart</p>
+                                        <div class="client-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    <p>
+                                        "As a startup, we needed financial guidance we could trust. AcasHub not only
+                                        handled our accounting but became strategic partners in our growth journey."
+                                    </p>
+                                </blockquote>
+                                <div class="card-footer">
+                                    <div class="service-used">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                        <span>Tax Consultation</span>
+                                    </div>
+                                    <div class="testimonial-date">January 2024</div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="testimonial-slide">
+                            <article class="testimonial-card" aria-labelledby="testimonial3-heading">
+                                <div class="card-header">
+                                    <div class="client-image">
+                                        <img src="assets/images/client3.webp" alt="David Wilson" width="80" height="80"
+                                            loading="lazy" />
+                                        <div class="client-badge">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="client-info">
+                                        <h3 id="testimonial3-heading">David Wilson</h3>
+                                        <p class="client-title">CFO, Wilson &amp; Co</p>
+                                        <div class="client-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    <p>
+                                        "Their tax planning services saved us thousands last year. The team is
+                                        responsive,
+                                        knowledgeable, and truly cares about our success."
+                                    </p>
+                                </blockquote>
+                                <div class="card-footer">
+                                    <div class="service-used">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Financial Advisory</span>
+                                    </div>
+                                    <div class="testimonial-date">November 2023</div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Slider controls -->
+                    <div class="testimonial-slider-controls">
+                        <button class="slider-prev" type="button" aria-label="Previous testimonial">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="slider-dots" aria-label="Testimonial navigation"></div>
+                        <button class="slider-next" type="button" aria-label="Next testimonial">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners-section" aria-label="Our partners">
+            <div class="container">
+                <h2 class="partners-title">Trusted By Industry Leaders</h2>
+                <div class="partners-grid">
+                    <div class="partner-item">
+                        <img src="assets/images/Intuit Quickbooks.webp" alt="QuickBooks" width="150" height="60" loading="lazy">
+                    </div>
+                    <div class="partner-item">
+                        <img src="assets/images/xero.webp" alt="Xero" width="150" height="60" loading="lazy">
+                    </div>
+                    <div class="partner-item">
+                        <img src="assets/images/thomson reuteres.webp" alt="Thomson Reuters" width="150" height="60"
+                            loading="lazy">
+                    </div>
+
+                    <div class="partner-item">
+                        <img src="assets/images/sap.webp" alt="SAP" width="150" height="60" loading="lazy">
+                    </div>
+                    <div class="partner-item">
+                        <img src="assets/images/python.jpg" alt="PYTHON" width="150" height="60" loading="lazy">
+                    </div>
+                    <div class="partner-item">
+                        <img src="assets/images/fullstack.jpg" alt="FULLSTACK" width="150" height="60" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 id="cta-heading">Ready to Transform Your Financial Operations?</h2>
+                    <p>Schedule a free consultation with our accounting experts today.</p>
+                    <a href="#contact" class="btn btn-primary">Get Started Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <section class="contact-form-section" id="contact">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Get in Touch</h2>
+                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                </div>
+
+                <form id="contactForm" class="contact-form" novalidate>
+                    <input type="text" name="honeypot" style="display:none !important" tabindex="-1" autocomplete="off">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Full Name</label>
+                            <div class="input-underline"></div>
+                        </div>
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <div class="input-underline"></div>
+                        </div>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="tel" id="phone" name="phone">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <div class="input-underline"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected></option>
+                                <option value="Accounting Services">Accounting Services</option>
+                                <option value="Tax Consultation">Tax Consultation</option>
+                                <option value="Financial Advisory">Financial Advisory</option>
+                                <option value="Software Solutions">Software Solutions</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <label for="subject">Subject</label>
+                            <div class="input-underline"></div>
+                        </div>
+                        <div class="error-message" id="subjectError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group textarea-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="input-underline"></div>
+                        </div>
+                        <div class="error-message" id="messageError"></div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <svg class="send-icon" viewBox="0 0 24 24">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                            </svg>
+                        </button>
+                        <div class="form-note">
+                            <i class="fas fa-lock"></i>
+                            <span>Your information is secure and will never be shared</span>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <svg class="success-icon" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    <h3>Message Sent Successfully!</h3>
+                    <p>Thank you for contacting us. We'll get back to you soon.</p>
+                    <button class="new-message-btn" id="newMessageBtn">Send Another Message</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-outer">
+            <div class="badge-inner">
+                <a class="badge-link" href="https://influentialwomen.com/" target="_blank">
+                    <img class="badge-img"
+                        src="https://bestagent-new-database.s3.us-east-2.amazonaws.com/configurations/config_68454009b3957.png"
+                        alt="Influential Women Badge" />
+                </a>
+            </div>
+            <div class="client-name"><a href="https://influentialwomen.com/profile/belgin-duymaz" target="_blank">Belgin
+                    Duymaz</a></div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer id="contact" class="main-footer" aria-label="Footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer Column 1 -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">About AcasHub</h3>
+                    <p>Professional accounting and financial consulting services to help businesses thrive and grow.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Column 2 -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 3 -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Accounting</a></li>
+                        <li><a href="#">Tax Services</a></li>
+                        <li><a href="#">Financial Consulting</a></li>
+                        <li><a href="#">Payroll Services</a></li>
+                        <li><a href="#">Software Solutions</a></li>
+                        <li><a href="#">Web Design</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 4 -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <address>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>1029 tree st, Philadelphia , Pennsylvania, USA</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <a href="#">+1 (212) 555-1234</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:info@acashub.com">info@acashub.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                        </div>
+                    </address>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2025 AcasHub. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js" defer></script>
+
+
+
+
+    <!-- Supabase Integration (modular) -->
+    <script src="assets/js/supabase.js"></script>
+    <script src="assets/js/services.js"></script>
+    <script src="assets/js/testimonials.js"></script>
+    <script src="assets/js/solutions.js"></script>
+    <script src="assets/js/partners.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/content.js"></script>
+</body>
+
+</html>

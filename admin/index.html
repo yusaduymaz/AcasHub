@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>AcasHub Admin Panel</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo-symbol.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="adminDashboard" class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <img src="../assets/images/logo-symbol.png" alt="AcasHub" width="36" height="36">
+                <span>Acas<strong>Hub</strong></span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="services">
+                    <i class="fas fa-concierge-bell"></i><span>Services</span>
+                </a>
+                <a href="#" class="nav-item" data-section="solutions">
+                    <i class="fas fa-lightbulb"></i><span>Solutions</span>
+                </a>
+                <a href="#" class="nav-item" data-section="partners">
+                    <i class="fas fa-handshake"></i><span>Partners</span>
+                </a>
+                <a href="#" class="nav-item" data-section="testimonials">
+                    <i class="fas fa-quote-right"></i><span>Testimonials</span>
+                </a>
+                <a href="#" class="nav-item" data-section="content">
+                    <i class="fas fa-edit"></i><span>Site Content</span>
+                </a>
+                <a href="#" class="nav-item" data-section="messages">
+                    <i class="fas fa-envelope"></i><span>Messages</span>
+                    <span class="nav-badge" id="unreadBadge" style="display:none;">0</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="userEmail">admin</span>
+                </div>
+                <button id="logoutBtn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- ═══ SERVICES SECTION ═══ -->
+            <div id="section-services" class="admin-section active">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+                        <h2>Services Management</h2>
+                    </div>
+                    <button class="btn-primary" onclick="AdminPanel.openServiceModal()">
+                        <i class="fas fa-plus"></i><span>Add Service</span>
+                    </button>
+                </header>
+                <section class="content-area">
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="stat-icon"><i class="fas fa-layer-group"></i></div><div class="stat-info"><span class="stat-value" id="totalServices">0</span><span class="stat-label">Total</span></div></div>
+                        <div class="stat-card"><div class="stat-icon active"><i class="fas fa-check-circle"></i></div><div class="stat-info"><span class="stat-value" id="activeServices">0</span><span class="stat-label">Active</span></div></div>
+                        <div class="stat-card"><div class="stat-icon inactive"><i class="fas fa-pause-circle"></i></div><div class="stat-info"><span class="stat-value" id="inactiveServices">0</span><span class="stat-label">Inactive</span></div></div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table"><thead><tr><th>Order</th><th>Icon</th><th>Title</th><th>Description</th><th>Features</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody id="servicesTableBody"><tr><td colspan="7" class="table-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ═══ CONTENT SECTION ═══ -->
+            <div id="section-content" class="admin-section">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+                        <h2>Site Content Management</h2>
+                    </div>
+                    <button class="btn-primary" onclick="AdminPanel.saveSiteContent()">
+                        <i class="fas fa-save"></i><span>Save All Content</span>
+                    </button>
+                </header>
+                <section class="content-area">
+                    <div id="contentFormError" class="form-error" role="alert" style="margin-bottom: 1rem;"></div>
+                    
+                    <!-- Hero Content -->
+                    <div class="admin-card" style="margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Hero Section</h3>
+                        <div class="form-row">
+                            <div class="form-field"><label>Title Line 1</label><input type="text" id="heroTitle1" placeholder="Transform Your"></div>
+                            <div class="form-field"><label>Title Highlight</label><input type="text" id="heroTitle2" placeholder="Financial Future"></div>
+                            <div class="form-field"><label>Title Line 3</label><input type="text" id="heroTitle3" placeholder="With Expert Guidance"></div>
+                        </div>
+                        <div class="form-field"><label>Subtitle</label><textarea id="heroSubtitle" rows="2"></textarea></div>
+                        <div class="form-field"><label>Background Video/Image URL</label><input type="text" id="heroImage" placeholder="assets/images/hero-image 2.webp"></div>
+                    </div>
+
+                    <!-- About Content -->
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">About Section</h3>
+                        <div class="form-row">
+                            <div class="form-field"><label>Title Normal</label><input type="text" id="aboutTitle1" placeholder="About"></div>
+                            <div class="form-field"><label>Title Highlight</label><input type="text" id="aboutTitle2" placeholder="AcasHub"></div>
+                        </div>
+                        <div class="form-field"><label>Paragraph 1</label><textarea id="aboutP1" rows="3"></textarea></div>
+                        <div class="form-field"><label>Paragraph 2</label><textarea id="aboutP2" rows="3"></textarea></div>
+                        <div class="form-field"><label>Features (One per line)</label><textarea id="aboutFeatures" rows="4"></textarea></div>
+                        <div class="form-field"><label>Image URL</label><input type="text" id="aboutImage" placeholder="assets/images/about-image.webp"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ═══ SOLUTIONS SECTION ═══ -->
+            <div id="section-solutions" class="admin-section">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+                        <h2>Solutions Management</h2>
+                    </div>
+                    <button class="btn-primary" onclick="AdminPanel.openSolutionModal()">
+                        <i class="fas fa-plus"></i><span>Add Solution</span>
+                    </button>
+                </header>
+                <section class="content-area">
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="stat-icon"><i class="fas fa-lightbulb"></i></div><div class="stat-info"><span class="stat-value" id="totalSolutions">0</span><span class="stat-label">Total</span></div></div>
+                        <div class="stat-card"><div class="stat-icon active"><i class="fas fa-check-circle"></i></div><div class="stat-info"><span class="stat-value" id="activeSolutions">0</span><span class="stat-label">Active</span></div></div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table"><thead><tr><th>Order</th><th>Tab Label</th><th>Title</th><th>Image URL</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody id="solutionsTableBody"><tr><td colspan="6" class="table-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ═══ PARTNERS SECTION ═══ -->
+            <div id="section-partners" class="admin-section">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+                        <h2>Partners Management</h2>
+                    </div>
+                    <button class="btn-primary" onclick="AdminPanel.openPartnerModal()">
+                        <i class="fas fa-plus"></i><span>Add Partner</span>
+                    </button>
+                </header>
+                <section class="content-area">
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="stat-icon"><i class="fas fa-handshake"></i></div><div class="stat-info"><span class="stat-value" id="totalPartners">0</span><span class="stat-label">Total</span></div></div>
+                        <div class="stat-card"><div class="stat-icon active"><i class="fas fa-check-circle"></i></div><div class="stat-info"><span class="stat-value" id="activePartners">0</span><span class="stat-label">Active</span></div></div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table"><thead><tr><th>Order</th><th>Partner Name</th><th>Image URL</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody id="partnersTableBody"><tr><td colspan="5" class="table-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ═══ TESTIMONIALS SECTION ═══ -->
+            <div id="section-testimonials" class="admin-section">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+                        <h2>Testimonials Management</h2>
+                    </div>
+                    <button class="btn-primary" onclick="AdminPanel.openTestimonialModal()">
+                        <i class="fas fa-plus"></i><span>Add Testimonial</span>
+                    </button>
+                </header>
+                <section class="content-area">
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="stat-icon"><i class="fas fa-quote-right"></i></div><div class="stat-info"><span class="stat-value" id="totalTestimonials">0</span><span class="stat-label">Total</span></div></div>
+                        <div class="stat-card"><div class="stat-icon active"><i class="fas fa-check-circle"></i></div><div class="stat-info"><span class="stat-value" id="activeTestimonials">0</span><span class="stat-label">Active</span></div></div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table"><thead><tr><th>Order</th><th>Client</th><th>Title</th><th>Quote</th><th>Rating</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody id="testimonialsTableBody"><tr><td colspan="7" class="table-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ═══ MESSAGES SECTION ═══ -->
+            <div id="section-messages" class="admin-section">
+                <header class="top-bar">
+                    <div class="top-bar-left">
+                        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+                        <h2>Contact Messages</h2>
+                    </div>
+                    <div></div>
+                </header>
+                <section class="content-area">
+                    <div class="stats-row">
+                        <div class="stat-card"><div class="stat-icon"><i class="fas fa-envelope"></i></div><div class="stat-info"><span class="stat-value" id="totalMessages">0</span><span class="stat-label">Total</span></div></div>
+                        <div class="stat-card"><div class="stat-icon active"><i class="fas fa-envelope-open"></i></div><div class="stat-info"><span class="stat-value" id="readMessages">0</span><span class="stat-label">Read</span></div></div>
+                        <div class="stat-card"><div class="stat-icon inactive"><i class="fas fa-envelope"></i></div><div class="stat-info"><span class="stat-value" id="unreadMessages">0</span><span class="stat-label">Unread</span></div></div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table"><thead><tr><th>Date</th><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Status</th><th>Actions</th></tr></thead>
+                        <tbody id="messagesTableBody"><tr><td colspan="7" class="table-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ═══ SERVICE MODAL ═══ -->
+    <div id="serviceModal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="serviceModalTitle">Add New Service</h3>
+                <button class="modal-close" onclick="AdminPanel.closeModal('serviceModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="serviceForm" class="modal-form" novalidate>
+                <input type="hidden" id="serviceId">
+                <div class="form-row">
+                    <div class="form-field"><label for="serviceTitle">Title <span class="required">*</span></label><input type="text" id="serviceTitle" placeholder="e.g. Accounting Services" required></div>
+                    <div class="form-field"><label for="serviceIcon">Icon Name <span class="required">*</span></label>
+                        <div class="icon-input-group"><input type="text" id="serviceIcon" placeholder="e.g. calculator" required><div class="icon-preview" id="iconPreview"><i class="fas fa-briefcase"></i></div></div>
+                        <small class="field-hint">Font Awesome name without "fa-"</small>
+                    </div>
+                </div>
+                <div class="form-field"><label for="serviceDescription">Description <span class="required">*</span></label><textarea id="serviceDescription" rows="3" placeholder="Brief description..." required></textarea></div>
+                <div class="form-field"><label for="serviceFeatures">Features</label><textarea id="serviceFeatures" rows="4" placeholder="One per line"></textarea><small class="field-hint">One feature per line</small></div>
+                <div class="form-row">
+                    <div class="form-field"><label for="serviceSortOrder">Sort Order</label><input type="number" id="serviceSortOrder" value="0" min="0"></div>
+                    <div class="form-field"><label>Status</label><div class="toggle-group"><label class="toggle"><input type="checkbox" id="serviceActive" checked><span class="toggle-slider"></span></label><span class="toggle-label" id="serviceToggleLabel">Active</span></div></div>
+                </div>
+                <div id="serviceFormError" class="form-error" role="alert"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="AdminPanel.closeModal('serviceModal')">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveServiceBtn"><i class="fas fa-save"></i><span>Save</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══ SOLUTION MODAL ═══ -->
+    <div id="solutionModal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="solutionModalTitle">Add Solution</h3>
+                <button class="modal-close" onclick="AdminPanel.closeModal('solutionModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="solutionForm" class="modal-form" novalidate>
+                <input type="hidden" id="solutionId">
+                <div class="form-row">
+                    <div class="form-field"><label for="solTabLabel">Tab Label <span class="required">*</span></label><input type="text" id="solTabLabel" placeholder="e.g. Small Business" required></div>
+                    <div class="form-field"><label for="solTitle">Title <span class="required">*</span></label><input type="text" id="solTitle" placeholder="e.g. Small Business Solutions" required></div>
+                </div>
+                <div class="form-field"><label for="solImage">Image URL <span class="required">*</span></label><input type="text" id="solImage" placeholder="assets/images/small-business.webp" required></div>
+                <div class="form-field"><label for="solDescription">Description <span class="required">*</span></label><textarea id="solDescription" rows="3" required></textarea></div>
+                <div class="form-field"><label for="solFeatures">Features</label><textarea id="solFeatures" rows="4" placeholder="One per line"></textarea></div>
+                <div class="form-row">
+                    <div class="form-field"><label for="solSortOrder">Sort Order</label><input type="number" id="solSortOrder" value="0" min="0"></div>
+                    <div class="form-field"><label>Status</label><div class="toggle-group"><label class="toggle"><input type="checkbox" id="solActive" checked><span class="toggle-slider"></span></label><span class="toggle-label" id="solToggleLabel">Active</span></div></div>
+                </div>
+                <div id="solutionFormError" class="form-error" role="alert"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="AdminPanel.closeModal('solutionModal')">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveSolutionBtn"><i class="fas fa-save"></i><span>Save</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══ PARTNER MODAL ═══ -->
+    <div id="partnerModal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="partnerModalTitle">Add Partner</h3>
+                <button class="modal-close" onclick="AdminPanel.closeModal('partnerModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="partnerForm" class="modal-form" novalidate>
+                <input type="hidden" id="partnerId">
+                <div class="form-row">
+                    <div class="form-field"><label for="pName">Partner Name <span class="required">*</span></label><input type="text" id="pName" placeholder="e.g. QuickBooks" required></div>
+                    <div class="form-field"><label for="pSortOrder">Sort Order</label><input type="number" id="pSortOrder" value="0" min="0"></div>
+                </div>
+                <div class="form-field"><label for="pImage">Image URL <span class="required">*</span></label><input type="text" id="pImage" placeholder="assets/images/quickbooks.webp" required></div>
+                <div class="form-field"><label>Status</label><div class="toggle-group"><label class="toggle"><input type="checkbox" id="pActive" checked><span class="toggle-slider"></span></label><span class="toggle-label" id="pToggleLabel">Active</span></div></div>
+                <div id="partnerFormError" class="form-error" role="alert"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="AdminPanel.closeModal('partnerModal')">Cancel</button>
+                    <button type="submit" class="btn-primary" id="savePartnerBtn"><i class="fas fa-save"></i><span>Save</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══ TESTIMONIAL MODAL ═══ -->
+    <div id="testimonialModal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="testimonialModalTitle">Add Testimonial</h3>
+                <button class="modal-close" onclick="AdminPanel.closeModal('testimonialModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="testimonialForm" class="modal-form" novalidate>
+                <input type="hidden" id="testimonialId">
+                <div class="form-row">
+                    <div class="form-field"><label for="tClientName">Client Name <span class="required">*</span></label><input type="text" id="tClientName" placeholder="e.g. Sarah Johnson" required></div>
+                    <div class="form-field"><label for="tClientTitle">Client Title <span class="required">*</span></label><input type="text" id="tClientTitle" placeholder="e.g. CEO, Retail Solutions" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label for="tClientImage">Image Path</label><input type="text" id="tClientImage" placeholder="assets/images/client1.webp"><small class="field-hint">Relative path to client photo</small></div>
+                    <div class="form-field"><label for="tRating">Rating</label>
+                        <select id="tRating"><option value="5">★★★★★ (5)</option><option value="4">★★★★☆ (4)</option><option value="3">★★★☆☆ (3)</option><option value="2">★★☆☆☆ (2)</option><option value="1">★☆☆☆☆ (1)</option></select>
+                    </div>
+                </div>
+                <div class="form-field"><label for="tQuote">Quote <span class="required">*</span></label><textarea id="tQuote" rows="4" placeholder="Client testimonial text..." required></textarea></div>
+                <div class="form-row">
+                    <div class="form-field"><label for="tServiceIcon">Service Icon</label><input type="text" id="tServiceIcon" placeholder="e.g. calculator"></div>
+                    <div class="form-field"><label for="tServiceLabel">Service Label</label><input type="text" id="tServiceLabel" placeholder="e.g. Accounting Services"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label for="tDate">Date</label><input type="text" id="tDate" placeholder="e.g. March 2024"></div>
+                    <div class="form-field"><label for="tSortOrder">Sort Order</label><input type="number" id="tSortOrder" value="0" min="0"></div>
+                </div>
+                <div class="form-field"><label>Status</label><div class="toggle-group"><label class="toggle"><input type="checkbox" id="tActive" checked><span class="toggle-slider"></span></label><span class="toggle-label" id="tToggleLabel">Active</span></div></div>
+                <div id="testimonialFormError" class="form-error" role="alert"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="AdminPanel.closeModal('testimonialModal')">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveTestimonialBtn"><i class="fas fa-save"></i><span>Save</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══ MESSAGE DETAIL MODAL ═══ -->
+    <div id="messageModal" class="modal-overlay" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Message Details</h3>
+                <button class="modal-close" onclick="AdminPanel.closeModal('messageModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="messageDetailBody"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn-danger" id="deleteMessageBtn"><i class="fas fa-trash"></i><span>Delete</span></button>
+                <button type="button" class="btn-secondary" onclick="AdminPanel.closeModal('messageModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ DELETE CONFIRMATION ═══ -->
+    <div id="deleteModal" class="modal-overlay" style="display:none;">
+        <div class="modal modal-sm">
+            <div class="modal-header danger"><h3><i class="fas fa-exclamation-triangle"></i> Confirm Delete</h3><button class="modal-close" onclick="AdminPanel.closeModal('deleteModal')"><i class="fas fa-times"></i></button></div>
+            <div class="modal-body"><p>Are you sure you want to delete <strong id="deleteItemName"></strong>?</p><p class="text-muted">This action cannot be undone.</p></div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="AdminPanel.closeModal('deleteModal')">Cancel</button>
+                <button type="button" class="btn-danger" id="deleteConfirmBtn"><i class="fas fa-trash"></i><span>Delete</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/supabase.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

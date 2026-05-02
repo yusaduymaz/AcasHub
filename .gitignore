@@ -1,0 +1,14 @@
+# Sistem Dosyaları
+.DS_Store
+Thumbs.db
+
+# Log Dosyaları
+*.log
+
+# Editör Ayarları
+.vscode/
+.idea/
+
+# Node Modules (Eğer ileride npm kullanırsanız diye)
+node_modules/
+package-lock.json
